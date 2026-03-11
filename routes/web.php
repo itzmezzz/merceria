@@ -13,3 +13,4 @@ Route::get('/categoria/form', function () {
 });
 Route::post('/categoria/guardar',[CategoriaController::class, 'guardar'])->name('categoria.guardar');
 Route::get('/categoria/lista',[CategoriaController::class, 'mostrar'])->name('categoria.mostrar');
+Route::get('/formulario_categoria', [CategoriaController::class, 'formulario'])->name('formulario_categoria');
