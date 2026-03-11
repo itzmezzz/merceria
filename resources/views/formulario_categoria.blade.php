@@ -20,8 +20,8 @@
 
 <div class="bg-white max-w-3xl rounded-xl shadow-md p-8">
 
-<form action="#" method="POST">
-
+<form action="{{ route('categoria.guardar') }}" method="POST">
+@csrf
 <!-- Nombre -->
 <div class="mb-6">
 <label class="block text-sm font-semibold text-gray-700 mb-2">
@@ -52,10 +52,11 @@ class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:rin
 <!-- BOTONES -->
 <div class="flex justify-end gap-4">
 
-<a href="{{ route('lista_categorias') }}"
+<a href="{{ route('categoria.mostrar')}}"
 class="bg-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-400 transition">
 Cancelar
 </a>
+
 
 <button type="submit"
 class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition shadow">

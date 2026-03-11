@@ -17,7 +17,7 @@
 
 <div class="p-4 border-b flex justify-between items-center">
     <h3 class="font-bold text-lg">Listado de categorías</h3>
-    <a href="{{ route('formulario_categoria') }}"
+    <a href=""
        class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
         Nueva
     </a>
