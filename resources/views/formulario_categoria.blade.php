@@ -21,7 +21,7 @@
 Nueva Categoría
 </h2>
 
-<form action="{{ route('categoria.guardar') }}" method="POST" class="space-y-6">
+<form action="{{ route('categoria.guardar') }}" method="POST" class="space-y-6" enctype="multipart/form-data">
 @csrf
 
 <!-- Nombre -->
@@ -48,6 +48,17 @@ rows="3"
 class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </textarea>
 </div>
+
+{{-- <div class="grid grid-cols-4 items-center gap-4"> --}}
+{{-- <label class="text-right text-slate-200"> --}}
+{{-- Foto --}}
+{{-- </label> --}}
+
+{{-- <input type="file" --}}
+{{-- name="foto" --}}
+{{-- class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500" --}}
+{{-- required> --}}
+{{-- </div> --}}
 
 <!-- BOTONES -->
 <div class="flex justify-center gap-6 pt-4">

@@ -16,7 +16,7 @@ return new class extends Migration
                 $table->dateTime('fecha')->useCurrent();
     $table->decimal('total',10,2);
 
-    $table->foreignId('proveedor_id')->constrained('proovedors');
+    $table->foreignId('proveedor_id')->constrained('proveedors');
     $table->foreignId('usuario_id')->constrained('users');
 
     $table->char('estatus',1)->default('A');

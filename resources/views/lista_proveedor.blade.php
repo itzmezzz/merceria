@@ -44,6 +44,7 @@ Nuevo proveedor
 <th class="py-4">Nombre</th>
 <th class="py-4">Teléfono</th>
 <th class="py-4">Email</th>
+<th class="py-4">Dirección</th>
 <th class="py-4 text-center">Estado</th>
 <th class="py-4 text-center">Acciones</th>
 </tr>
@@ -53,15 +54,24 @@ Nuevo proveedor
 
 <!-- FILA -->
 <tr class="border-b border-gray-700 hover:bg-[#334155] transition">
+@foreach ($proveedores as $pro)
+    
 
-<td class="py-4 font-semibold"></td>
-<td class="py-4"></td>
-<td class="py-4"></td>
+<td class="py-4 font-semibold">{{ $pro->nombre }}</td>
+<td class="py-4">{{ $pro->telefono }}</td>
+<td class="py-4">{{ $pro->email }}</td>
+<td class="py-4">{{ $pro->direccion }}</td>
 
 <td class="py-4 text-center">
-<span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-sm">
-Activo
-</span>
+ @if($pro->estatus === 'A')
+  <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-sm">
+      Activo
+    </span>
+  @else
+    <span class="bg-red-500/20 text-red-400 px-2 py-1 rounded text-sm">
+       Inactivo
+    </span>
+  @endif
 </td>
 
 <td class="py-4 text-center">
@@ -86,7 +96,7 @@ Cambiar
 
 <!-- FILA -->
 
-
+@endforeach
 </tbody>
 
 </table>
