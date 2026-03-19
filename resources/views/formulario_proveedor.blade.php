@@ -1,86 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nuevo Proveedor</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('src/output.css') }}">
-    <title>Document</title>
 </head>
-<body>
-    
-</body>
-</html>
 
-<body class="bg-gray-100">
-    
+<body class="flex min-h-screen bg-gradient-to-br from-slate-900 to-slate-700">
 
-<div class="flex justify-center py-10">
+@include('menu')
 
-<div class="bg-white w-full max-w-4xl rounded-xl shadow-md p-8">
+<main class="flex-1 flex justify-center items-center">
 
-<h2 class="text-2xl font-bold mb-6">Nuevo Proveedor</h2>
 
-<form action="#" method="POST">
+<div class="bg-[#1e293b] p-10 rounded-xl shadow-2xl w-[900px] text-white">
+
+<h2 class="text-2xl font-semibold mb-10 text-center">
+Nuevo Proveedor
+</h2>
+
+<form action="#" method="POST" class="space-y-6">
 
 <!-- Nombre empresa -->
-<div class="mb-5">
-<label class="block text-sm font-semibold text-gray-700 mb-2">
+<div class="grid grid-cols-4 items-center gap-4">
+<label class="text-right text-slate-200">
 Nombre empresa
 </label>
 
 <input type="text"
-class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500">
+class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 
 <!-- Nombre contacto -->
-<div class="mb-5">
-<label class="block text-sm font-semibold text-gray-700 mb-2">
+<div class="grid grid-cols-4 items-center gap-4">
+<label class="text-right text-slate-200">
 Nombre contacto
 </label>
 
 <input type="text"
-class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500">
+class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 
-<!-- Teléfono y Email -->
-<div class="grid grid-cols-2 gap-6 mb-5">
+<!-- Teléfono -->
+<div class="grid grid-cols-4 items-center gap-4">
+<label class="text-right text-slate-200">
+Teléfono
+</label>
 
-<div>
-<label class="block text-sm font-semibold text-gray-700 mb-2">Teléfono</label>
 <input type="tel"
-class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500">
+class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 
-<div>
-<label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+<!-- Email -->
+<div class="grid grid-cols-4 items-center gap-4">
+<label class="text-right text-slate-200">
+Email
+</label>
+
 <input type="email"
-class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500">
-</div>
-
+class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 
 <!-- Dirección -->
-<div class="mb-6">
-<label class="block text-sm font-semibold text-gray-700 mb-2">
+<div class="grid grid-cols-4 items-center gap-4">
+<label class="text-right text-slate-200">
 Dirección
 </label>
 
 <textarea rows="3"
-class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500">
-</textarea>
+class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500"></textarea>
 </div>
 
 <!-- Botones -->
-<div class="flex justify-end gap-4">
+<div class="flex justify-center gap-6 pt-6">
 
 <a href="/proveedores"
-class="bg-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-400">
+class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-lg">
 Cancelar
 </a>
 
 <button
-class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700">
+class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg font-semibold">
 Guardar
 </button>
 
@@ -89,6 +91,8 @@ Guardar
 </form>
 
 </div>
-</div>
+
+</main>
 
 </body>
+</html>

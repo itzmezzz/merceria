@@ -1,85 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercería Victoria</title>
-    <link rel="stylesheet" href="{{ asset('src/output.css') }}">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercería Victoria</title>
+
+<link rel="stylesheet" href="{{ asset('src/output.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class="flex bg-gray-100">
+<body class="flex min-h-screen bg-gradient-to-br from-slate-900 to-slate-700">
 
-    <!-- MENÚ LATERAL -->
-    <aside class="w-64 min-h-screen bg-[#1e2d42] text-white">
+@include('menu')
 
-        <!-- Título -->
-        <div class="p-6 text-2xl font-bold border-b border-gray-600">
-            Mercería Victoria
-        </div>
+<div class="flex-1 flex flex-col">
 
-        <!-- Navegación -->
-        <nav class="mt-4">
+<!-- HEADER -->
+<header class="bg-[#1e293b] shadow px-8 py-4 flex justify-between items-center">
 
-            <a href="{{ route('index') }}"
-               class="block px-6 py-3 bg-gray-600">
-                Inicio
-            </a>
+<h1 class="text-2xl font-semibold text-white flex items-center gap-3">
+<i class="fa-solid fa-chart-line text-blue-400"></i>
+Panel de Inicio
+</h1>
 
-            <a href="{{ route('carrito') }}"
-               class="block px-6 py-3 hover:bg-gray-700 transition">
-                Nueva Venta
-            </a>
+</header>
 
-            <a href="{{ route('inventario') }}"
-               class="block px-6 py-3 hover:bg-gray-700 transition">
-                Inventario
-            </a>
+<!-- CONTENIDO -->
+<main class="p-8 space-y-8">
 
-            <a href="{{ route('lista_categorias') }}"
-               class="block px-6 py-3 hover:bg-gray-700 transition">
-                Categorías
-            </a>
 
-            <a href="{{ route('lista_proveedor') }}"
-               class="block px-6 py-3 hover:bg-gray-700 transition">
-                Proveedores
-            </a>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
 
-        </nav>
-    </aside>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <main class="flex-1 p-8">
+<!-- CARD -->
+<div class="bg-[#1e293b] p-6 rounded-xl shadow-lg hover:shadow-xl hover:-translate-y-1 transition">
 
-        <h1 class="text-2xl font-bold mb-6">Panel de Inicio</h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="flex justify-between items-center">
+<p class="text-slate-400 text-base font-medium">Productos activos</p>
 
-            <div class="bg-white p-6 rounded shadow">
-                <p class="text-gray-500 text-sm">Productos activos</p>
-                <p class="text-3xl font-bold"></p>
-            </div>
+<i class="fa-solid fa-box text-blue-400 text-xl"></i>
+</div>
 
-            <div class="bg-white p-6 rounded shadow">
-                <p class="text-gray-500 text-sm">Stock bajo</p>
-                <p class="text-3xl font-bold"></p>
-            </div>
+<p class="text-4xl font-bold text-white mt-4"></p>
 
-            <div class="bg-white p-6 rounded shadow">
-                <p class="text-gray-500 text-sm">Ventas hoy</p>
-                <p class="text-3xl font-bold">
-                    
-                </p>
-            </div>
+</div>
 
-            <div class="bg-white p-6 rounded shadow">
-                <p class="text-gray-500 text-sm">Categorías</p>
-                <p class="text-3xl font-bold"></p>
-            </div>
+<!-- CARD -->
+<div class="bg-[#1e293b] p-6 rounded-xl shadow-lg hover:scale-105 transition transform">
 
-        </div>
+<div class="flex justify-between items-center">
+<p class="text-slate-400 text-base font-medium">Stock bajo</p>
+<i class="fa-solid fa-triangle-exclamation text-red-400 text-xl"></i>
+</div>
 
-    </main>
+<p class="text-4xl font-bold text-white mt-4"></p>
+
+</div>
+
+<!-- CARD -->
+<div class="bg-[#1e293b] p-6 rounded-xl shadow-lg hover:scale-105 transition transform">
+
+<div class="flex justify-between items-center">
+<p class="text-slate-400 text-base font-medium">Ventas hoy</p>
+<i class="fa-solid fa-dollar-sign text-green-400 text-xl"></i>
+</div>
+
+<p class="text-4xl font-bold text-white mt-4"></p>
+
+</div>
+
+<!-- CARD -->
+<div class="bg-[#1e293b] p-6 rounded-xl shadow-lg hover:scale-105 transition transform">
+
+<div class="flex justify-between items-center">
+<p class="text-slate-400 text-base font-medium">Categorías</p>
+<i class="fa-solid fa-tags text-purple-400 text-xl"></i>
+</div>
+
+<p class="text-4xl font-bold text-white mt-4"></p>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
 
 </body>
 </html>
