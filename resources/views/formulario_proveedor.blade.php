@@ -21,8 +21,8 @@
 Nuevo Proveedor
 </h2>
 
-<form action="#" method="POST" class="space-y-6">
-
+<form action="{{ route('proveedor.guardar') }}" method="POST" class="space-y-6">
+@csrf
 <!-- Nombre empresa -->
 <div class="grid grid-cols-4 items-center gap-4">
 <label class="text-right text-slate-200">
@@ -39,7 +39,7 @@ class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focu
 Nombre contacto
 </label>
 
-<input type="text"
+<input type="text" name="nombre"
 class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 
@@ -49,7 +49,7 @@ class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focu
 Teléfono
 </label>
 
-<input type="tel"
+<input type="tel" name="telefono"
 class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 
@@ -59,7 +59,7 @@ class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focu
 Email
 </label>
 
-<input type="email"
+<input type="email" name="email"
 class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 
@@ -69,7 +69,7 @@ class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focu
 Dirección
 </label>
 
-<textarea rows="3"
+<textarea rows="3" name="direccion"
 class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500"></textarea>
 </div>
 

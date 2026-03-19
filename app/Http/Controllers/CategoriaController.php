@@ -1,44 +1,39 @@
 <?php
-
 namespace App\Http\Controllers;
+
 use App\Models\Categoria; 
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
-     function index()
+    // Mostrar listado de categorías
+    public function mostrar()
     {
         $categorias = Categoria::all();
         return view('lista_categorias', compact('categorias'));
     }
-    
-    function guardar(Request $req){
-        $categoria = new Categoria();
-        $categoria->nombre = $req->nombre;
-        $categoria->descripcion = $req->descripcion;
-        $categoria->save();
 
-        return redirect()->route('categoria.mostrar'); // Redirige al listado después de guardar
-    }
-    function mostrar(){
-         $categorias = Categoria::all();
-     return view('lista_categorias', compact('categorias'));
-
-    }
-
-     function create()
-    {
+    // Mostrar formulario para crear nueva categoría
+   function nuevo(){
         return view('formulario_categoria');
     }
 
-     function store(Request $request)
+    // Guardar nueva categoría
+    public function store(Request $request)
     {
-        // No backend persistence; redirige al listado.
+        $categoria = new Categoria();
+        $categoria->nombre = $request->nombre;
+        $categoria->descripcion = $request->descripcion;
+
+       // if ($request->hasFile('foto')) {
+            // $ruta = $request->file('foto')->store('imagenes', 'public');
+            // $categoria->foto = $ruta;
+        // } else {
+            // $categoria->foto = 'sin foto';
+        // }
+
+         $categoria->save();
+
         return redirect()->route('categorias.index');
     }
-        function formulario()
-        {
-            return view('formulario_categoria');
-
-        }
 }

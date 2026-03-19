@@ -22,8 +22,8 @@
 Nuevo Producto
 </h2>
 
-<form class="space-y-6 text-white">
-
+<form class="space-y-6 text-white" action="{{ route('producto.guardar')}}" method="POST" enctype="multipart/form-data">
+@csrf
 <div class="grid grid-cols-4 items-center gap-4">
 <label class="text-right text-slate-200">Código</label>
 <input type="text"
@@ -32,37 +32,65 @@ class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focu
 
 <div class="grid grid-cols-4 items-center gap-4">
 <label class="text-right text-slate-200">Nombre</label>
-<input type="text"
+<input type="text" name="nombre"
 class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 
 <div class="grid grid-cols-4 items-center gap-4">
 <label class="text-right text-slate-200">Descripción</label>
-<textarea rows="3"
+<textarea rows="3" name="descripcion"
 class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500"></textarea>
 </div>
 
 <div class="grid grid-cols-4 items-center gap-4">
 <label class="text-right text-slate-200">Precio compra</label>
-<input type="number"
+<input type="number" name="precio_compra"
 class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 
 <div class="grid grid-cols-4 items-center gap-4">
 <label class="text-right text-slate-200">Precio venta</label>
-<input type="number"
+<input type="number" name="precio_venta"
 class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 
 <div class="grid grid-cols-4 items-center gap-4">
 <label class="text-right text-slate-200">Stock</label>
-<input type="number"
+<input type="number" name="stock"
 class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 
 <div class="grid grid-cols-4 items-center gap-4">
 <label class="text-right text-slate-200">Stock mínimo</label>
-<input type="number"
+<input type="number" name="stock_minimo"
+class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
+</div>
+
+<!-- Para Categorias -->
+<div class="grid grid-cols-4 items-center gap-4">
+    <label class="text-right text-slate-200">Categoria</label>
+    <select name="categoria_id" 
+        class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
+        @foreach($categorias as $categoria)
+            <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+        @endforeach
+    </select>
+</div>
+
+<!-- Para Proveedores -->
+<div class="grid grid-cols-4 items-center gap-4">
+    <label class="text-right text-slate-200">Proveedor</label>
+    <select name="proveedor_id" 
+        class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
+        @foreach($proveedores as $proveedor)
+            <option value="{{ $proveedor->id }}">{{ $proveedor->nombre }}</option>
+        @endforeach
+    </select>
+</div>
+
+<div class="grid grid-cols-4 items-center gap-4">
+<label class="text-right text-slate-200">Foto</label>
+<input type="file" name="foto"
 class="col-span-3 px-4 py-2 rounded-lg bg-slate-700 border border-slate-600 focus:outline-none focus:border-green-500">
 </div>
 

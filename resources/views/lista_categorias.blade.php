@@ -22,7 +22,7 @@
 <i class="fa-solid fa-tags"></i> Categorías
 </h2>
 
-<a href="{{ route('formulario_categoria') }}"
+<a href="{{ route('categoria.nuevo') }}"
 class="bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 inline-flex items-center gap-2">
 <i class="fa-solid fa-plus"></i>
 Nueva
@@ -48,14 +48,22 @@ Nueva
 
 <!-- FILA -->
 <tr class="border-b border-gray-700 hover:bg-[#334155] transition">
+@foreach ($categorias as $categoria)
+    
 
-<td class="py-4 font-semibold"></td>
-<td class="py-4"></td>
+<td class="py-4 font-semibold">{{ $categoria->nombre }}</td>
+<td class="py-4">{{ $categoria->descripcion }}</td>
 
 <td class="py-4 text-center">
-<span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-sm">
-
-</span>
+  @if($categoria->estatus === 'A')
+  <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-sm">
+      Activo
+    </span>
+  @else
+    <span class="bg-red-500/20 text-red-400 px-2 py-1 rounded text-sm">
+       Inactivo
+    </span>
+  @endif
 </td>
 
 <td class="py-4 text-center">
@@ -77,7 +85,7 @@ Cambiar
 </td>
 
 </tr>
-
+@endforeach
 </tbody>
 
 </table>

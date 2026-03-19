@@ -23,7 +23,7 @@ return new class extends Migration
     $table->integer('stock_minimo')->default(0);
 
     $table->foreignId('categoria_id')->constrained('categorias');
-    $table->foreignId('proveedor_id')->constrained('proovedors');
+    $table->foreignId('proveedor_id')->constrained('proveedors');
 
     $table->char('estatus',1)->default('A');
             $table->timestamps();
