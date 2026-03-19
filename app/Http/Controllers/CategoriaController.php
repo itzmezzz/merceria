@@ -36,10 +36,9 @@ class CategoriaController extends Controller
         // No backend persistence; redirige al listado.
         return redirect()->route('categorias.index');
     }
+        function formulario()
+        {
+            return view('formulario_categoria');
 
-     function toggleActivo($id)
-    {
-        // Sin lógica real; solo retorna a la página anterior.
-        return redirect()->back();
-    }
+        }
 }

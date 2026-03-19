@@ -5,7 +5,8 @@
 <title>Nueva Venta</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="/src/output.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="{{ asset('src/output.css') }}">
 </head>
 
 <body class="bg-gray-100">
@@ -20,88 +21,79 @@
 <div class="flex gap-6 h-[calc(100vh-80px)]">
 
 <!-- PRODUCTOS -->
-<div class="flex-1 bg-white rounded shadow flex flex-col">
+<div class="flex-1 bg-white rounded-lg shadow-sm flex flex-col overflow-hidden">
 
-<!-- Buscador -->
-<div class="p-4 flex gap-2">
-<input type="text" placeholder="Buscar producto..." class="flex-1 border rounded px-3 py-2">
+<!-- 🔍 BUSCADOR -->
+<form class="p-4 flex gap-2 border-b bg-gray-100">
 
-<select class="border rounded px-3 py-2">
-<option>Todas las categorías</option>
-<option>Hilos</option>
-<option>Botones</option>
-<option>Cierres</option>
-</select>
-</div>
+    <div class="relative flex-1">
+        <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-400"></i>
+        <input 
+            type="text" 
+            placeholder="Buscar producto..."
+            class="w-full bg-white border border-gray-300 rounded-lg pl-10 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+        >
+    </div>
 
-<!-- GRID PRODUCTOS -->
-<div class="flex-1 overflow-y-auto p-4 grid grid-cols-4 gap-4">
+    <select class="bg-white border border-gray-300 rounded-lg px-3 py-2">
+        <option>Todas</option>
+        <option>Hilos</option>
+        <option>Botones</option>
+        <option>Cierres</option>
+    </select>
 
-<div class="rounded p-4 cursor-pointer">
-<p class="font-semibold text-sm"></p>
-<p class="text-blue-600 font-bold"></p>
-<p class="text-xs text-gray-500"></p>
-</div>
+    <button class="bg-blue-600 text-white px-4 rounded-lg hover:bg-blue-700">
+        Buscar
+    </button>
 
-<div class="rounded p-4 cursor-pointer">
-<p class="font-semibold text-sm"></p>
-<p class="text-blue-600 font-bold"></p>
-<p class="text-xs text-gray-500"></p>
-</div>
+</form>
 
-<div class="rounded p-4 cursor-pointer">
-<p class="font-semibold text-sm"></p>
-<p class="text-blue-600 font-bold"></p>
-<p class="text-xs text-gray-500"></p>
-</div>
+<!-- 📦 GRID -->
+<div class="flex-1 flex items-start p-6">
 
-<div class="rounded p-4 cursor-pointer">
-<p class="font-semibold text-sm"></p>
-<p class="text-blue-600 font-bold"></p>
-<p class="text-xs text-gray-500"></p>
-</div>
+    <!-- 🧵 CARD -->
+    <div class="w-64 bg-white border border-gray-300 rounded-lg shadow-md p-4 hover:shadow-lg transition">
 
-</div>
-</div>
+        <div class="flex justify-between">
+            <p class="text-gray-800 font-semibold text-sm">Hilo Rojo</p>
+            <i class="fa-solid fa-box text-gray-400"></i>
+        </div>
 
-<!-- TICKET -->
-<div class="w-96 bg-white rounded shadow flex flex-col">
+        <p class="text-blue-600 font-bold mt-2">$25</p>
+        <p class="text-xs text-gray-500">Hilos</p>
 
-<div class="bg-slate-800 text-white p-4 rounded-t">
-<h3 class="font-bold"></h3>
-</div>
+        <button class="mt-3 w-full bg-green-500 text-white py-1 rounded-lg text-sm hover:bg-green-600 flex items-center justify-center gap-2">
+            <i class="fa-solid fa-cart-plus"></i>
+            Agregar
+        </button>
 
-<div class="flex-1 overflow-y-auto p-4">
+    </div>
 
-<div class="py-2">
-<div class="flex justify-between">
-<p class="font-semibold text-sm"></p>
-<button class="text-red-500 text-xs"></button>
-</div>
-
-<div class="flex justify-between items-center mt-1">
-<span class="text-sm font-semibold"></span>
-<p class="font-bold text-sm"></p>
-</div>
-</div>
-
-<div class="py-2">
-<div class="flex justify-between">
-<p class="font-semibold text-sm"></p>
-<button class="text-red-500 text-xs"></button>
-</div>
 </div>
 
 </div>
 
-<div class="p-4 bg-gray-50 rounded-b">
+<!-- 🧾 CARRITO -->
+<div class="w-96 bg-white border border-gray-300 rounded-lg shadow-sm flex flex-col overflow-hidden">
 
-<div class="flex justify-between text-lg font-bold mb-4">
-<span></span>
-<span class="text-blue-600"></span>
+<div class="bg-slate-800 text-white p-4 flex justify-between items-center">
+<h3 class="font-bold">Ticket</h3>
+<i class="fa-solid fa-receipt"></i>
 </div>
 
-<button class="w-full bg-green-600 text-white py-3 rounded font-bold hover:bg-green-700">
+<div class="flex-1 p-4 text-gray-500 text-sm">
+    Aquí se mostrará el carrito
+</div>
+
+<div class="p-4 bg-gray-100 border-t border-gray-300">
+
+<div class="flex justify-between text-lg font-semibold text-gray-800 mb-4">
+<span>Total</span>
+<span class="text-blue-600">$0</span>
+</div>
+
+<button class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 flex items-center justify-center gap-2">
+<i class="fa-solid fa-cash-register"></i>
 COBRAR
 </button>
 
