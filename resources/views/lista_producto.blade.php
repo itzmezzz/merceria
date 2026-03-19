@@ -16,7 +16,6 @@
 
 <main class="flex-1 flex justify-center items-start p-10">
 
-<!-- CONTENEDOR -->
 <div class="bg-[#1e293b] text-white rounded-2xl shadow-xl p-8 w-full max-w-7xl min-h-[450px] flex flex-col">
 
 <!-- TITULO -->
@@ -37,65 +36,50 @@ Nuevo producto
 <!-- CARDS -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-  <!-- CARD -->
+@forelse ($productos as $producto)
+
   <div class="bg-[#334155] rounded-xl shadow-md p-5 hover:shadow-xl transition">
-    <h2 class="text-xl font-bold">Producto 1</h2>
-    <p class="text-gray-400">Descripción del producto</p>
+    
+    <img src="{{ asset('storage/' . $producto->foto) }}"
+       class="w-full h-40 object-cover rounded-lg mb-4">
+
+    <h2 class="text-xl font-bold">
+      {{ $producto->nombre }}
+    </h2>
+
+    <p class="text-gray-400">
+      {{ $producto->descripcion }}
+    </p>
 
     <div class="mt-4 flex gap-2">
-      <a href="#"
+      
+      <!-- EDITAR -->
+      <a href="{{ route('editar_producto', $producto->id) }}"
       class="flex items-center gap-2 bg-yellow-500 text-black px-3 py-1.5 rounded-lg hover:bg-yellow-600 transition">
         <i class="fa-solid fa-pen text-sm"></i>
         Editar
       </a>
 
-      <a href="#"
-      class="flex items-center gap-2 bg-red-600 px-3 py-1.5 rounded-lg hover:bg-red-700 transition">
-        <i class="fa-solid fa-trash text-sm"></i>
-        Eliminar
-      </a>
+      <!-- ELIMINAR -->
+      <form action="{{ route('eliminar_producto', $producto->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button
+        class="flex items-center gap-2 bg-red-600 px-3 py-1.5 rounded-lg hover:bg-red-700 transition">
+          <i class="fa-solid fa-trash text-sm"></i>
+          Eliminar
+        </button>
+      </form>
+
     </div>
+
   </div>
 
-  <!-- CARD -->
-  <div class="bg-[#334155] rounded-xl shadow-md p-5 hover:shadow-xl transition">
-    <h2 class="text-xl font-bold">Producto 2</h2>
-    <p class="text-gray-400">Otra descripción</p>
+@empty
 
-    <div class="mt-4 flex gap-2">
-      <a href="#"
-      class="flex items-center gap-2 bg-yellow-500 text-black px-3 py-1.5 rounded-lg hover:bg-yellow-600 transition">
-        <i class="fa-solid fa-pen text-sm"></i>
-        Editar
-      </a>
+  <p class="text-gray-400">No hay productos registrados</p>
 
-      <a href="#"
-      class="flex items-center gap-2 bg-red-600 px-3 py-1.5 rounded-lg hover:bg-red-700 transition">
-        <i class="fa-solid fa-trash text-sm"></i>
-        Eliminar
-      </a>
-    </div>
-  </div>
-
-  <!-- CARD -->
-  <div class="bg-[#334155] rounded-xl shadow-md p-5 hover:shadow-xl transition">
-    <h2 class="text-xl font-bold">Producto 3</h2>
-    <p class="text-gray-400">Información del producto</p>
-
-    <div class="mt-4 flex gap-2">
-      <a href="#"
-      class="flex items-center gap-2 bg-yellow-500 text-black px-3 py-1.5 rounded-lg hover:bg-yellow-600 transition">
-        <i class="fa-solid fa-pen text-sm"></i>
-        Editar
-      </a>
-
-      <a href="#"
-      class="flex items-center gap-2 bg-red-600 px-3 py-1.5 rounded-lg hover:bg-red-700 transition">
-        <i class="fa-solid fa-trash text-sm"></i>
-        Eliminar
-      </a>
-    </div>
-  </div>
+@endforelse
 
 </div>
 

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
              $table->string('nombre');
     $table->string('descripcion')->nullable();
-
+     $table->string('foto')->nullable();
     $table->decimal('precio_compra',10,2);
     $table->decimal('precio_venta',10,2);
 
