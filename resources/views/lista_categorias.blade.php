@@ -46,22 +46,20 @@ Nueva
 
 <tbody class="text-gray-200">
 
-<!-- FILA -->
-<tr class="border-b border-gray-700 hover:bg-[#334155] transition">
 @foreach ($categorias as $categoria)
-    
+<tr class="border-b border-gray-700 hover:bg-[#334155] transition">
 
 <td class="py-4 font-semibold">{{ $categoria->nombre }}</td>
 <td class="py-4">{{ $categoria->descripcion }}</td>
 
 <td class="py-4 text-center">
   @if($categoria->estatus === 'A')
-  <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-sm">
+    <span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-sm">
       Activo
     </span>
   @else
     <span class="bg-red-500/20 text-red-400 px-2 py-1 rounded text-sm">
-       Inactivo
+      Inactivo
     </span>
   @endif
 </td>
@@ -69,23 +67,36 @@ Nueva
 <td class="py-4 text-center">
 <div class="flex justify-center gap-2">
 
-<a href="#"
+<a href="{{ route('editar_categoria', $categoria->id) }}"
 class="flex items-center gap-2 bg-yellow-500 text-black px-3 py-1.5 rounded-lg hover:bg-yellow-600 transition">
 <i class="fa-solid fa-pen text-sm"></i>
 Editar
 </a>
 
-<a href="#"
-class="flex items-center gap-2 bg-red-600 px-3 py-1.5 rounded-lg hover:bg-red-700 transition">
-<i class="fa-solid fa-trash text-sm"></i>
-Cambiar
-</a>
+<form action="{{ route('eliminar_categoria', $categoria->id) }}" method="POST">
+    @csrf
+    @method('DELETE')
+
+    <button 
+    class="flex items-center gap-2 px-3 py-1.5 rounded-lg transition
+    {{ $categoria->estatus === 'A' ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700' }}"
+    onclick="return confirm('{{ $categoria->estatus === 'A' ? '¿Deseas desactivar esta categoría?' : '¿Deseas activar esta categoría?' }}')">
+
+    <!-- ICONO DINÁMICO -->
+    <i class="fa-solid {{ $categoria->estatus === 'A' ? 'fa-trash' : 'fa-check' }} text-sm"></i>
+
+    {{ $categoria->estatus === 'A' ? 'Desactivar' : 'Activar' }}
+
+    </button>
+
+</form>
 
 </div>
 </td>
 
 </tr>
 @endforeach
+
 </tbody>
 
 </table>

@@ -77,7 +77,7 @@ Nuevo proveedor
 <td class="py-4 text-center">
 <div class="flex justify-center gap-2">
 
-<a href="#"
+<a href="{{ route('editar_proveedor', $pro->id) }}"
 class="flex items-center gap-2 bg-yellow-500 text-black px-3 py-1.5 rounded-lg hover:bg-yellow-600 transition">
 <i class="fa-solid fa-pen text-sm"></i>
 Editar
