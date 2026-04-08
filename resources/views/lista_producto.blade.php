@@ -55,7 +55,7 @@ Nuevo producto
         </h2>
 
         <!-- DESCRIPCION -->
-        <p class="text-xs text-gray-400 line-clamp-2">
+        <p class="text-[14px] text-gray-400 line-clamp-2">
             {{ $producto->descripcion }}
         </p>
 
@@ -64,12 +64,12 @@ Nuevo producto
             ${{ $producto->precio_venta }}
         </p>
 
-        <p class="text-gray-400 text-[10px] line-through">
+        <p class="text-gray-400 text-[12px] line-through">
             ${{ $producto->precio_compra }}
         </p>
 
         <!-- STOCK -->
-        <p class="text-xs mt-1">
+        <p class="text-[15px] mt-1">
             Stock: 
             <span class="{{ $producto->stock <= $producto->stock_minimo ? 'text-red-400' : 'text-blue-400' }}">
                 {{ $producto->stock }}
@@ -77,16 +77,16 @@ Nuevo producto
         </p>
 
         <!-- INFO EXTRA -->
-        <p class="text-[10px] text-gray-400 mt-1">
+        <p class="text-[15px] text-gray-400 mt-1">
             {{ $producto->categoria->nombre ?? 'Sin categoría' }}
         </p>
 
-        <p class="text-[10px] text-gray-400">
+        <p class="text-[15px] text-gray-400">
             {{ $producto->proveedor->nombre ?? 'Sin proveedor' }}
         </p>
 
         <!-- ESTADO -->
-        <span class="inline-block mt-1 px-2 py-0.5 rounded-full text-[10px] font-semibold 
+        <span class="inline-block mt-1 px-2 py-0.5 rounded-full text-[13px] font-semibold 
         {{ $producto->estatus ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400' }}">
             {{ $producto->estatus ? 'Activo' : 'Inactivo' }}
         </span>
@@ -94,25 +94,30 @@ Nuevo producto
     </div>
 
     <!-- BOTONES ABAJO -->
-    <div class="mt-2 flex gap-2">
+    <!-- BOTONES ABAJO -->
+<div class="mt-2 flex gap-2">
 
-        <a href="{{ route('editar_producto', $producto->id) }}"
-        class="text-[10px] flex items-center gap-1 bg-yellow-500 text-black px-2 py-1 rounded hover:bg-yellow-600 transition">
-            <i class="fa-solid fa-pen text-[10px]"></i>
-            Editar
-        </a>
+    @if(auth()->user()->rol === 'A')
 
-        <form action="{{ route('eliminar_producto', $producto->id) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button
-            class="text-[10px] flex items-center gap-1 bg-red-600 px-2 py-1 rounded hover:bg-red-700 transition">
-                <i class="fa-solid fa-trash text-[10px]"></i>
-                Eliminar
-            </button>
-        </form>
+    <a href="{{ route('editar_producto', $producto->id) }}"
+    class="text-[15px] flex items-center gap-1 bg-yellow-500 text-black px-2 py-1 rounded hover:bg-yellow-600 transition">
+        <i class="fa-solid fa-pen text-[12px]"></i>
+        Editar
+    </a>
 
-    </div>
+    <form action="{{ route('eliminar_producto', $producto->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button
+        class="text-[15px] flex items-center gap-1 bg-red-600 px-2 py-1 rounded hover:bg-red-700 transition">
+            <i class="fa-solid fa-trash text-[12px]"></i>
+            Eliminar
+        </button>
+    </form>
+
+    @endif
+
+</div>
 
 </div>
 

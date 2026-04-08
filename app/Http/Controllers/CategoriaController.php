@@ -19,7 +19,7 @@ class CategoriaController extends Controller
     }
 
     // Guardar nueva categoría
-    public function store(Request $request)
+    public function guardar(Request $request)
     {
         $categoria = new Categoria();
         $categoria->nombre = $request->nombre;
@@ -34,6 +34,37 @@ class CategoriaController extends Controller
 
          $categoria->save();
 
-        return redirect()->route('categorias.index');
+        return redirect()->route('categoria.mostrar');
     }
+    public function editar($id)
+{
+    $categoria = Categoria::findOrFail($id);
+    return view('editar_categoria', compact('categoria'));
+}
+
+public function actualizar(Request $request, $id)
+{
+    $categoria = Categoria::findOrFail($id);
+
+    $categoria->nombre = $request->nombre;
+    $categoria->descripcion = $request->descripcion;
+
+    $categoria->save();
+
+    return redirect()->route('categoria.mostrar');
+}
+public function eliminar($id)
+{
+    $categoria = Categoria::findOrFail($id);
+
+    if ($categoria->estatus === 'A') {
+        $categoria->estatus = 'I';
+    } else {
+        $categoria->estatus = 'A';
+    }
+
+    $categoria->save();
+
+    return redirect()->route('categoria.mostrar');
+}
 }
